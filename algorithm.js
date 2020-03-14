@@ -22,12 +22,12 @@ function binarySearch(array,target){
   
   while(flag) {
 
-    if(target < array[halfIndex] && target >= array[startIndex]){
+    if(target < array[halfIndex] && endIndex - startIndex > 1){
       endIndex = halfIndex;
       halfIndex = Math.floor((endIndex - startIndex) / 2) ;
     }
-    else if(target > array[halfIndex] && target <= array[endIndex]){
-      startIndex = halfIndex;
+    else if(target > array[halfIndex] &&  endIndex - startIndex > 1){
+      startIndex = halfIndex; 
       halfIndex = (endIndex-startIndex === 1) ? startIndex + 1 : startIndex + Math.floor((endIndex - startIndex) / 2);
     }
     else if(target === array[halfIndex]){
@@ -50,7 +50,8 @@ console.log(binarySearch(arr123,517));
 console.log(binarySearch(arr123,948));
 console.log(binarySearch(arr123,1000));
 console.log(binarySearch(arr123,5023)); 
-console.log(binarySearch(arr123,-1)); 
+console.log(binarySearch(arr123,22));
+console.log(binarySearch(arr123,-55)); 
 console.log(binarySearch(arr123,10000));
 
 console.log('========');
