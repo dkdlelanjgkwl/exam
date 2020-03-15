@@ -62,11 +62,9 @@ function recursiveBinarySearch(array,target,startIndex,endIndex){
 
   let halfIndex = Math.floor((startIndex+endIndex) / 2);
 
-  // if(startIndex > endIndex) {
-  //   return -1;
-  // }
+  // 사용자가 잘못된값 입력하는지 체크
   if(startIndex < 0 || endIndex > array.length || startIndex > endIndex) return -1;
-
+  
   if( target > array[halfIndex] && endIndex - startIndex > 0){
     return recursiveBinarySearch(array,target,halfIndex+1,endIndex);
   }else if( target < array[halfIndex]  && endIndex - startIndex > 0){
