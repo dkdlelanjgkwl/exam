@@ -64,7 +64,7 @@ function recursiveBinarySearch(array,target,startIndex,endIndex){
 
   if( target > array[halfIndex] && endIndex - startIndex > 0){
     return recursiveBinarySearch(array,target,halfIndex+1,endIndex);
-  }else if( target < array[halfIndex]  && endIndex - startIndex > 0){ // 음수나옴. 비교 필요 x
+  }else if( target < array[halfIndex]  && endIndex - startIndex > 0){
     return recursiveBinarySearch(array,target,startIndex,halfIndex - 1);
   }else if( target === array[halfIndex]){
     return indexOfTarget = halfIndex;
