@@ -64,10 +64,10 @@ function recursiveBinarySearch(array,target,startIndex,endIndex){
 
   // 사용자가 잘못된값 입력하는지 체크
   if(startIndex < 0 || endIndex > array.length || startIndex > endIndex) return -1;
-  
-  if( target > array[halfIndex] && endIndex - startIndex > 0){
+
+  if( target > array[halfIndex] && endIndex - startIndex > 1){
     return recursiveBinarySearch(array,target,halfIndex+1,endIndex);
-  }else if( target < array[halfIndex]  && endIndex - startIndex > 0){
+  }else if( target < array[halfIndex]  && endIndex - startIndex > 1){
     return recursiveBinarySearch(array,target,startIndex,halfIndex - 1);
   }else if( target === array[halfIndex]){
     return indexOfTarget = halfIndex;
@@ -75,7 +75,7 @@ function recursiveBinarySearch(array,target,startIndex,endIndex){
     return -1;
   }
 }
-console.log(recursiveBinarySearch(arr123,1,2,arr123.length));
+console.log(recursiveBinarySearch(arr123,1,0,arr123.length));
 console.log(recursiveBinarySearch(arr123,20,0,20));
 console.log(recursiveBinarySearch(arr123,66,-1));
 console.log(recursiveBinarySearch(arr123,198));
