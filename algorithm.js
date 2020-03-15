@@ -14,11 +14,11 @@ console.log('========');
 
 function binarySearch(array,target){
   
-  startIndex = 0; 
-  endIndex = array.length-1;
-  halfIndex = Math.floor((endIndex - startIndex) / 2);
-  flag = true;
-  indexOfTarget = '';
+  let startIndex = 0; 
+  let endIndex = array.length-1;
+  let halfIndex = Math.floor((endIndex - startIndex) / 2);
+  let flag = true;
+  let indexOfTarget = '';
   
   while(flag) {
 
@@ -34,7 +34,7 @@ function binarySearch(array,target){
       indexOfTarget = halfIndex;
       flag = false;
     }
-    else{ 
+    else{
       indexOfTarget = -1;
       flag = false;
     }
@@ -56,11 +56,42 @@ console.log(binarySearch(arr123,10000));
 
 console.log('========');
 
+function recursiveBinarySearch(array,target,startIndex,endIndex){
+  startIndex = (startIndex === undefined) ? 0 : startIndex;
+  endIndex = (endIndex === undefined) ? array.length-1 : endIndex;
+
+  let halfIndex = Math.floor((startIndex+endIndex) / 2);
+
+  if( target > array[halfIndex] && endIndex - startIndex > 0){
+    return recursiveBinarySearch(array,target,halfIndex+1,endIndex);
+  }else if( target < array[halfIndex]  && endIndex - startIndex > 0){ // 음수나옴. 비교 필요 x
+    return recursiveBinarySearch(array,target,startIndex,halfIndex - 1);
+  }else if( target === array[halfIndex]){
+    return indexOfTarget = halfIndex;
+  }else {
+    return -1;
+  }
+}
+console.log(recursiveBinarySearch(arr123,1,2,arr123.length));
+console.log(recursiveBinarySearch(arr123,20,3,arr123.length));
+console.log(recursiveBinarySearch(arr123,66));
+console.log(recursiveBinarySearch(arr123,198));
+console.log(recursiveBinarySearch(arr123,517));
+console.log(recursiveBinarySearch(arr123,948));
+console.log(recursiveBinarySearch(arr123,1000));
+console.log(recursiveBinarySearch(arr123,5023,1,3));
+console.log(recursiveBinarySearch(arr123,5000));
+console.log(recursiveBinarySearch(arr123,999));
+console.log(recursiveBinarySearch(arr123,1004));
+console.log(recursiveBinarySearch(arr123,22));
+console.log(recursiveBinarySearch(arr123,-1));
+console.log('========');
+
 function bubbleSort(array){
   let compareCount = array.length;
   let temp = '';
 
-  for(i = 0; i < array.length; i ++){
+  for(let i = 0; i < array.length; i ++){
     for(let j = 0; j < compareCount; j++){
       if(array[j] > array[j+1]){
         temp = array[j];
