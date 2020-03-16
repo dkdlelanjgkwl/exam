@@ -9,6 +9,7 @@ console.log(linearSearch(arr123, 5023));
 console.log(linearSearch(arr123, 1));
 console.log(linearSearch(arr123, 7));
 console.log('========');
+
 function binarySearch(array, target) {
   let startIndex = 0;
   let endIndex = array.length - 1;
@@ -32,6 +33,7 @@ function binarySearch(array, target) {
   }
   return indexOfTarget;
 }
+
 console.log(binarySearch(arr123, 1));
 console.log(binarySearch(arr123, 20));
 console.log(binarySearch(arr123, 66));
@@ -43,12 +45,12 @@ console.log(binarySearch(arr123, 5023));
 console.log(binarySearch(arr123, 22));
 console.log(binarySearch(arr123, -55));
 console.log(binarySearch(arr123, 10000));
-// console.log(startIndex);
 console.log('========');
+
 function recursiveBinarySearch(array, target, startIndex = 0, endIndex = array.length - 1) {
   let halfIndex = Math.floor((startIndex + endIndex) / 2);
   let indexOfTarget = '';
-  // // 사용자가 잘못된값 입력하는지 체크
+  // 사용자가 잘못된값 입력하는지 체크
   if (startIndex < 0 || endIndex > array.length || startIndex > endIndex) halfIndex = -1;
   if (target > array[halfIndex] && endIndex - startIndex > 0) {
     indexOfTarget = recursiveBinarySearch(array, target, halfIndex + 1, endIndex);
@@ -61,6 +63,7 @@ function recursiveBinarySearch(array, target, startIndex = 0, endIndex = array.l
   }
   return indexOfTarget;
 }
+
 console.log(recursiveBinarySearch(arr123, -90));
 console.log(recursiveBinarySearch(arr123, 1, 0, arr123.length));
 console.log(recursiveBinarySearch(arr123, 20));
@@ -76,6 +79,7 @@ console.log(recursiveBinarySearch(arr123, 1004));
 console.log(recursiveBinarySearch(arr123, 22));
 console.log(recursiveBinarySearch(arr123, -1));
 console.log('========');
+
 function bubbleSort(array) {
   let compareCount = array.length;
   let temp = '';
@@ -91,6 +95,7 @@ function bubbleSort(array) {
   }
   return array;
 }
+
 console.log(bubbleSort([3, 1, 0, -1, 4, 2]));
 console.log(bubbleSort([5, 2, 1, 3, 4, 6]));
 console.log(bubbleSort([2, 4, 5, 1, 3]));
