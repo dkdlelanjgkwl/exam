@@ -14,7 +14,7 @@ console.log('========');
 
 function binarySearch(array,target){
   
-  let startIndex = 0; 
+  let startIndex = 0;
   let endIndex = array.length-1;
   let halfIndex = Math.floor((endIndex - startIndex) / 2);
   let flag = true;
@@ -26,7 +26,7 @@ function binarySearch(array,target){
       endIndex = halfIndex;
       halfIndex = Math.floor((endIndex - startIndex) / 2) ;
     }
-    else if(target > array[halfIndex] &&  endIndex - startIndex > 1){
+    else if(target > array[halfIndex] &&  endIndex - startIndex > 1 ){
       startIndex = halfIndex; 
       halfIndex = (endIndex-startIndex === 1) ? startIndex + 1 : startIndex + Math.floor((endIndex - startIndex) / 2);
     }
@@ -63,11 +63,11 @@ function recursiveBinarySearch(array,target,startIndex,endIndex){
   let halfIndex = Math.floor((startIndex+endIndex) / 2);
 
   // 사용자가 잘못된값 입력하는지 체크
-  if(startIndex < 0 || endIndex > array.length || startIndex > endIndex) return -1;
+  // if(startIndex < 0 || endIndex > array.length || startIndex > endIndex) return -1;
 
-  if( target > array[halfIndex] && endIndex - startIndex > 1){
+  if( target > array[halfIndex] && endIndex - startIndex > 0){
     return recursiveBinarySearch(array,target,halfIndex+1,endIndex);
-  }else if( target < array[halfIndex]  && endIndex - startIndex > 1){
+  }else if( target < array[halfIndex]  && endIndex - startIndex > 0){
     return recursiveBinarySearch(array,target,startIndex,halfIndex - 1);
   }else if( target === array[halfIndex]){
     return indexOfTarget = halfIndex;
@@ -75,15 +75,16 @@ function recursiveBinarySearch(array,target,startIndex,endIndex){
     return -1;
   }
 }
+console.log(recursiveBinarySearch(arr123,-90));
 console.log(recursiveBinarySearch(arr123,1,0,arr123.length));
-console.log(recursiveBinarySearch(arr123,20,0,20));
-console.log(recursiveBinarySearch(arr123,66,-1));
+console.log(recursiveBinarySearch(arr123,20));
+console.log(recursiveBinarySearch(arr123,66));
 console.log(recursiveBinarySearch(arr123,198));
 console.log(recursiveBinarySearch(arr123,517));
 console.log(recursiveBinarySearch(arr123,948));
 console.log(recursiveBinarySearch(arr123,1000));
-console.log(recursiveBinarySearch(arr123,5023,0,3));
-console.log(recursiveBinarySearch(arr123,5000));
+console.log(recursiveBinarySearch(arr123,5023));
+console.log(recursiveBinarySearch(arr123,6000));
 console.log(recursiveBinarySearch(arr123,999));
 console.log(recursiveBinarySearch(arr123,1004));
 console.log(recursiveBinarySearch(arr123,22));
